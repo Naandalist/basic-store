@@ -1,76 +1,42 @@
 import React from 'react';
-import {View, Text} from 'react-native';
-
-import {theme} from '../../constants';
+import {View, Text, StyleSheet, ViewStyle} from 'react-native';
 import {ProductType} from '../../types';
+import {COLORS} from '../../constants/colors';
 
-type Props = {version: 1 | 2; item: ProductType; containerStyle?: object};
+type Props = {
+  item: ProductType;
+  containerStyle?: ViewStyle;
+};
 
 const SaleBadge: React.FC<Props> = ({
   item,
-  version,
   containerStyle,
 }): JSX.Element | null => {
-  if (version === 1) {
-    if (item.availabilityStatus) {
-      return (
-        <View
-          style={{
-            backgroundColor: theme.colors.white,
-            borderRadius: 3,
-            alignSelf: 'flex-start',
-            paddingHorizontal: 6,
-            borderWidth: 1,
-            borderColor: theme.colors.lightBlue,
-            ...containerStyle,
-          }}>
-          <Text
-            style={{
-              // ...theme.fonts.DMSans_700Bold,
-              fontSize: 8,
-              textTransform: 'uppercase',
-              color: theme.colors.mainColor,
-              lineHeight: 8 * 1.7,
-            }}>
-            Sale
-          </Text>
-        </View>
-      );
-    }
+  if (item.availabilityStatus) {
+    return (
+      <View style={[styles.container, containerStyle]}>
+        <Text style={styles.text}>Sale</Text>
+      </View>
+    );
   }
-
-  // 58 x 32
-  if (version === 2) {
-    if (item.availabilityStatus) {
-      return (
-        <View
-          style={{
-            width: 58,
-            height: 32,
-            justifyContent: 'center',
-            alignItems: 'center',
-            flexDirection: 'row',
-            backgroundColor: theme.colors.white,
-            borderWidth: 1,
-            borderRadius: 3,
-            borderColor: theme.colors.lightBlue,
-            ...containerStyle,
-          }}>
-          <Text
-            style={{
-              // ...theme.fonts.DMSans_700Bold,
-              fontSize: 12,
-              textTransform: 'uppercase',
-              color: theme.colors.mainColor,
-            }}>
-            Sale
-          </Text>
-        </View>
-      );
-    }
-  }
-
   return null;
 };
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: COLORS.white,
+    borderRadius: 3,
+    alignSelf: 'flex-start',
+    paddingHorizontal: 6,
+    borderWidth: 1,
+    borderColor: COLORS.lightBlue,
+  },
+  text: {
+    fontSize: 8,
+    textTransform: 'uppercase',
+    color: COLORS.mainColor,
+    lineHeight: 8 * 1.7,
+  },
+});
 
 export default SaleBadge;

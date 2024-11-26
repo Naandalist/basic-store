@@ -1,4 +1,4 @@
-import {theme} from '../constants';
+import {COLORS} from '../constants/colors';
 
 export const bgColor = (color: string) => {
   return color === 'champagne'
@@ -11,5 +11,5 @@ export const bgColor = (color: string) => {
     ? '#6B6D7B'
     : color === 'squidInk'
     ? '#142535'
-    : theme.colors.white;
+    : COLORS.white;
 };

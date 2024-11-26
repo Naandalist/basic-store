@@ -2,11 +2,11 @@ import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import React from 'react';
 
 import {svg} from '../../assets/svg';
-import {theme} from '../../constants';
 import {ProductType} from '../../types';
 import {useAppDispatch} from '../../hooks';
 import {quantityInCart} from '../../utils';
 import {removeFromCart, addToCart} from '../../store/slices/cartSlice';
+import {COLORS} from '../../constants/colors';
 
 type Props = {
   item: ProductType;
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
   textVer1: {
     fontSize: 14,
     lineHeight: 14 * 1.5,
-    color: theme.colors.mainColor,
+    color: COLORS.mainColor,
   },
   wrapperText: {
     width: 25,

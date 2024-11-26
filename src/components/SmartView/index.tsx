@@ -1,22 +1,13 @@
-import {ScrollView, StyleSheet, ViewStyle} from 'react-native';
+import {ScrollView, StyleSheet} from 'react-native';
 import React from 'react';
 
 type Props = {
   children: React.ReactNode;
-  containerStyle?: ViewStyle;
+  containerStyle?: object;
 };
 
-const SmartView: React.FC<Props> = ({
-  children,
-  containerStyle,
-}): JSX.Element => {
-  return (
-    <ScrollView
-      style={[styles.container, containerStyle]}
-      showsVerticalScrollIndicator={false}>
-      {children}
-    </ScrollView>
-  );
+const SmartView: React.FC<Props> = ({children}): JSX.Element => {
+  return <ScrollView style={styles.container}>{children}</ScrollView>;
 };
 
 const styles = StyleSheet.create({

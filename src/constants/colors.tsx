@@ -1,4 +1,4 @@
-export const colors = {
+export const COLORS = {
   mainColor: '#142535',
   white: '#FFFFFF',
   textColor: '#4A5F73',
@@ -6,4 +6,5 @@ export const colors = {
   red: '#ff7979',
   imageBackground: '#F6F8FB',
   transparent: 'transparent',
+  disabled: 'grey',
 };

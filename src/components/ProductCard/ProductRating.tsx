@@ -1,8 +1,8 @@
 import {View, Text, ViewStyle, StyleSheet} from 'react-native';
 import React from 'react';
 import {svg} from '../../assets/svg';
-import {theme} from '../../constants';
 import type {ProductType} from '../../types';
+import {COLORS} from '../../constants/colors';
 
 type Props = {
   item: ProductType;
@@ -34,9 +34,9 @@ const styles = StyleSheet.create({
   },
   ratingText: {
     fontSize: 12,
-    lineHeight: 20, // Using fixed value instead of calculation
+    lineHeight: 20,
     marginLeft: 4,
-    color: theme.colors.textColor,
+    color: COLORS.textColor,
   },
 });
 

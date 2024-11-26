@@ -1,4 +1,4 @@
-export const dataCategories = [
+export const CATEGORIES = [
   {
     id: 1,
     slug: 'mens-shoes',

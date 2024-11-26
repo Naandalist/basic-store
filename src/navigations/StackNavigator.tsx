@@ -5,14 +5,30 @@ import type {RootStackParamList} from '../types/RootStackParamList';
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
 
+import TabNavigator from './TabNavigator';
 import {screens} from '../screens';
 
 const StackNavigator = () => {
   return (
-    <RootStack.Navigator initialRouteName="HomeScreen">
+    <RootStack.Navigator initialRouteName="TabNavigator">
       <RootStack.Screen
-        name="HomeScreen"
-        component={screens.HomeScreen}
+        name="ProductDetail"
+        component={screens.ProductDetail}
+        options={{headerShown: false}}
+      />
+      <RootStack.Screen
+        name="SearchProduct"
+        component={screens.SearchProduct}
+        options={{headerShown: false}}
+      />
+      <RootStack.Screen
+        name="ShopScreen"
+        component={screens.ShopScreen}
+        options={{headerShown: false}}
+      />
+      <RootStack.Screen
+        name="TabNavigator"
+        component={TabNavigator}
         options={{headerShown: false}}
       />
     </RootStack.Navigator>

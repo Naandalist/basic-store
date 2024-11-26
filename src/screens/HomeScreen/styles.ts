@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {theme} from '../../constants';
+import {COLORS} from '../../constants/colors';
 
 export default StyleSheet.create({
   searchContainer: {
@@ -17,14 +17,14 @@ export default StyleSheet.create({
   searchText: {
     marginLeft: 8,
     fontSize: 14,
-    color: theme.colors.textColor,
+    color: COLORS.textColor,
   },
   searchWrapper: {
     flexDirection: 'row',
   },
   topCategoryContainer: {
     marginHorizontal: 20,
-    marginBottom: 50,
+    marginBottom: 20,
     marginTop: 20,
   },
   topCategoryTitle: {

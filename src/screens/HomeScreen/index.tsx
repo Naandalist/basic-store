@@ -6,15 +6,11 @@ import {
   TouchableOpacity,
   // TextInput,
 } from 'react-native';
-import {
-  useGetProductsQuery,
-  //   useGetCategoriesQuery,
-  // useGetBannersQuery,
-} from '../../store/slices/apiSlice';
+import {useGetProductsQuery} from '../../store/slices/apiSlice';
 // import {useAppDispatch} from '../../hooks';
 import {components} from '../../components';
-import {dataCategories} from '../../constants/categories';
-// import {useAppNavigation} from '../../hooks';
+import {CATEGORIES} from '../../constants/categories';
+import {useAppNavigation} from '../../hooks';
 // import {ProductType} from '../../types';
 // import {setScreen} from '../../store/slices/tabSlice';
 // import {text} from '../../text';
@@ -22,31 +18,21 @@ import {svg} from '../../assets/svg';
 import styles from './styles';
 import {ProductType} from '../../types';
 
-// import {theme} from '../../constants';
-
 const HomeScreen = () => {
-  //   const navigation = useAppNavigation();
-  //   const dispatch = useAppDispatch();
-
-  console.log('dataCategories: ', dataCategories);
+  const navigation = useAppNavigation();
+  // const dispatch = useAppDispatch();
 
   const {
     data: productsData,
     // error: productsError,
-    // isLoading: productsLoading,
+    isLoading: productsLoading,
   } = useGetProductsQuery();
-
-  console.log('productsData: ', productsData);
-
-  //   const {
-  //     data: categoriesData,
-  //     error: categoriesError,
-  //     isLoading: categoriesIsLoading,
-  //   } = useGetCategoriesQuery();
 
   const renderSearch = () => {
     return (
-      <TouchableOpacity onPress={() => null} style={styles.searchContainer}>
+      <TouchableOpacity
+        onPress={() => navigation.navigate('SearchProduct', {productsData})}
+        style={styles.searchContainer}>
         <View style={styles.searchWrapper}>
           <svg.SearchSvg />
           <Text style={styles.searchText}>Search</Text>
@@ -60,10 +46,8 @@ const HomeScreen = () => {
       <View style={styles.topCategoryContainer}>
         <Text style={styles.topCategoryTitle}>Top Categories</Text>
         <View style={styles.itemCategoryWrapper}>
-          {dataCategories.map((item, index) => {
-            return (
-              <components.CategoryItem key={index} item={item} version={4} />
-            );
+          {CATEGORIES.map((item, index) => {
+            return <components.CategoryItem key={index} item={item} />;
           })}
         </View>
       </View>
@@ -78,7 +62,7 @@ const HomeScreen = () => {
     return (
       <View style={styles.highestRatingContainer}>
         <Text style={styles.topCategoryTitle}>Highest Ratings</Text>
-        {/* {productsLoading && <components.Loader />} */}
+        {productsLoading && <Text>Loading</Text>}
         {productsData &&
           slice?.map(
             (item: ProductType, index: number, array: ProductType[]) => {
@@ -87,7 +71,6 @@ const HomeScreen = () => {
                 <components.ProductCard
                   key={index}
                   item={item}
-                  version={3}
                   lastItem={lastItem}
                 />
               );

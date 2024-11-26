@@ -6,9 +6,8 @@ import {
   removeFromWishlist,
 } from '../../store/slices/wishlistSlice';
 import {ProductType} from '../../types';
-
 import {svg} from '../../assets/svg';
-import {theme} from '../../constants';
+import {COLORS} from '../../constants/colors';
 
 type Props = {
   item: ProductType;
@@ -26,10 +25,8 @@ const InWishlist: React.FC<Props> = ({
   const wishlist = useAppSelector(state => state.wishlist.list);
   const itemExist = () => wishlist.find(i => i.id === item.id);
 
-  const fillColor = itemExist() ? theme.colors.red : theme.colors.transparent;
-  const strokeColor = itemExist()
-    ? theme.colors.transparent
-    : theme.colors.textColor;
+  const fillColor = itemExist() ? COLORS.red : COLORS.transparent;
+  const strokeColor = itemExist() ? COLORS.transparent : COLORS.textColor;
 
   const {HeartSmallSvg} = svg;
 

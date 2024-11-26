@@ -14,11 +14,13 @@ import {
 import {apiSlice} from './slices/apiSlice';
 import cartReducer from './slices/cartSlice';
 import {wishlistSlice} from './slices/wishlistSlice';
+import {tabSlice} from './slices/tabSlice';
 
 const rootReducer = combineReducers({
   [apiSlice.reducerPath]: apiSlice.reducer,
   cart: cartReducer,
   wishlist: wishlistSlice.reducer,
+  tab: tabSlice.reducer,
 });
 
 const persistConfig = {
