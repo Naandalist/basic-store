@@ -1,9 +1,11 @@
 import SmartView from './SmartView';
 import LoaderView from './LoaderView';
-import BlockHeading from './BlockHeading';
+import CategoryItem from './CategoryItem';
+import ProductCard from './ProductCard';
 
 export const components = {
   SmartView,
   LoaderView,
-  BlockHeading,
+  CategoryItem,
+  ProductCard,
 };

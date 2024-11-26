@@ -12,13 +12,13 @@ import {
 } from 'redux-persist';
 
 import {apiSlice} from './slices/apiSlice';
-// import cartReducer from './slices/cartSlice';
-// import {wishlistSlice} from './slices/wishlistSlice';
+import cartReducer from './slices/cartSlice';
+import {wishlistSlice} from './slices/wishlistSlice';
 
 const rootReducer = combineReducers({
   [apiSlice.reducerPath]: apiSlice.reducer,
-  //   cart: cartReducer,
-  //   wishlist: wishlistSlice.reducer,
+  cart: cartReducer,
+  wishlist: wishlistSlice.reducer,
 });
 
 const persistConfig = {
