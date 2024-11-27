@@ -47,6 +47,7 @@ const styles = StyleSheet.create({
     height: 'auto',
     marginBottom: 20,
     borderRadius: 5,
+    marginRight: 8,
   },
   image: {
     width: '100%',
@@ -61,6 +62,8 @@ const styles = StyleSheet.create({
   },
   wishlistContainer: {
     marginBottom: 'auto',
+    top: '80%',
+    left: '80%',
   },
   productName: {
     marginBottom: 3,
