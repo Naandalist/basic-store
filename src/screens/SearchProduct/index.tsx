@@ -43,8 +43,6 @@ const SearchProduct: React.FC<Props> = ({
     skip: debouncedQuery.length < 2,
   });
 
-  console.log('searchResults: ', searchResults);
-
   const renderResults = () => {
     if (searchQuery.length < 2) {
       // Show initial suggestions from productsData
@@ -87,7 +85,6 @@ const SearchProduct: React.FC<Props> = ({
       <TouchableOpacity
         key={index}
         style={styles.suggestionItem}
-        // onPress={() => navigation.navigate('ProductDetail', {product})}>
         onPress={() => null}>
         <svg.SearchSvg />
         <Text style={styles.suggestionText}>{product.title}</Text>

@@ -12,7 +12,6 @@ const SaleBadge: React.FC<Props> = ({
   item,
   containerStyle,
 }): JSX.Element | null => {
-  console.log('item: ', item);
   if (item.stock) {
     return (
       <View style={[styles.container, containerStyle]}>
