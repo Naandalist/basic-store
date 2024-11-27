@@ -31,7 +31,9 @@ const ProductCard: React.FC<Props> = ({item, lastItem}): JSX.Element | null => {
       </ImageBackground>
       <View style={styles.contentContainer}>
         <View style={styles.rowSpaceBetween}>
-          <Text>{item.title}</Text>
+          <Text style={styles.title} numberOfLines={1}>
+            {item.title}
+          </Text>
           <InWishlist item={item} version={1} />
         </View>
         <ProductPrice item={item} version={1} />
@@ -47,6 +49,9 @@ const ProductCard: React.FC<Props> = ({item, lastItem}): JSX.Element | null => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
+  },
+  title: {
+    maxWidth: 220,
   },
   marginBottom: {
     marginBottom: 10,
