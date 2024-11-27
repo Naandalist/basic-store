@@ -14,6 +14,7 @@ import WishlistItem from './WishlistItem';
 import Image from './Image';
 import ProductCarousel from './ProductCarousel';
 import ShopItem from './ShopItem';
+import SkeletonView from './SkeletonView';
 
 export const components = {
   SmartView,
@@ -32,4 +33,5 @@ export const components = {
   Image,
   ProductCarousel,
   ShopItem,
+  SkeletonView,
 };

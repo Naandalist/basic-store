@@ -1,37 +1,29 @@
 import React from 'react';
-import {
-  View,
-  // ScrollView,
-  Text,
-  TouchableOpacity,
-  // TextInput,
-} from 'react-native';
+import {View, Text, TouchableOpacity} from 'react-native';
 import {useGetProductsQuery} from '../../store/slices/apiSlice';
-// import {useAppDispatch} from '../../hooks';
 import {components} from '../../components';
 import {CATEGORIES} from '../../constants/categories';
 import {useAppNavigation} from '../../hooks';
-// import {ProductType} from '../../types';
-// import {setScreen} from '../../store/slices/tabSlice';
-// import {text} from '../../text';
 import {svg} from '../../assets/svg';
 import styles from './styles';
 import {ProductType} from '../../types';
 
 const HomeScreen = () => {
   const navigation = useAppNavigation();
-  // const dispatch = useAppDispatch();
 
-  const {
-    data: productsData,
-    // error: productsError,
-    isLoading: productsLoading,
-  } = useGetProductsQuery();
+  const {data: productsData, isLoading: productsLoading} =
+    useGetProductsQuery();
 
   const renderSearch = () => {
     return (
       <TouchableOpacity
-        onPress={() => navigation.navigate('SearchProduct', {productsData})}
+        onPress={() =>
+          navigation.navigate('SearchProduct', {
+            productsData: {
+              products: productsData?.products || [],
+            },
+          })
+        }
         style={styles.searchContainer}>
         <View style={styles.searchWrapper}>
           <svg.SearchSvg />
@@ -62,7 +54,8 @@ const HomeScreen = () => {
     return (
       <View style={styles.highestRatingContainer}>
         <Text style={styles.topCategoryTitle}>Highest Ratings</Text>
-        {productsLoading && <Text>Loading</Text>}
+        {productsLoading && <components.SkeletonView />}
+
         {productsData &&
           slice?.map(
             (item: ProductType, index: number, array: ProductType[]) => {

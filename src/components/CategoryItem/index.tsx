@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, TouchableOpacity, View} from 'react-native';
+import {Text, TouchableOpacity} from 'react-native';
 import {CategoryType} from '../../types';
 import {useAppNavigation} from '../../hooks';
 import ImageBackground from '../ImageBackground';
@@ -26,12 +26,10 @@ const CategoryItem: React.FC<Props> = ({item}): JSX.Element | null => {
         style={styles.version4Image}
         imageStyle={styles.radiusStyles}
         resizeMode="cover">
-        <View />
         <Text style={styles.smallText}>{item.title}</Text>
       </ImageBackground>
     </TouchableOpacity>
   );
-  // }
 };
 
 export default CategoryItem;

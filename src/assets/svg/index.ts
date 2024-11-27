@@ -11,6 +11,7 @@ import UserTabSvg from './UserTabSvg';
 import BasketTabSvg from './BasketTabSvg';
 import MinusSvg from './MinusSvg';
 import GoBackSvg from './GoBackSvg';
+import StoreLogoSvg from './StoreLogoSvg';
 
 export const svg = {
   SearchSvg,
@@ -26,4 +27,5 @@ export const svg = {
   UserTabSvg,
   MinusSvg,
   GoBackSvg,
+  StoreLogoSvg,
 };

@@ -1,16 +1,19 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-
 import type {RootStackParamList} from '../types/RootStackParamList';
-
-const RootStack = createNativeStackNavigator<RootStackParamList>();
-
 import TabNavigator from './TabNavigator';
 import {screens} from '../screens';
 
+const RootStack = createNativeStackNavigator<RootStackParamList>();
+
 const StackNavigator = () => {
   return (
-    <RootStack.Navigator initialRouteName="TabNavigator">
+    <RootStack.Navigator initialRouteName="SplashScreen">
+      <RootStack.Screen
+        name="SplashScreen"
+        component={screens.SplashScreen}
+        options={{headerShown: false}}
+      />
       <RootStack.Screen
         name="ProductDetail"
         component={screens.ProductDetail}

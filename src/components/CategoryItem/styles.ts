@@ -77,6 +77,8 @@ export default StyleSheet.create({
     backgroundColor: COLORS.imageBackground,
   },
   smallText: {
+    top: 80,
+    left: 10,
     color: COLORS.mainColor,
     fontSize: 10,
     lineHeight: 10 * 1.5,

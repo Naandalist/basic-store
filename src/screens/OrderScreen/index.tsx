@@ -3,6 +3,7 @@ import {View, ScrollView, Text, StyleSheet} from 'react-native';
 import {useAppSelector} from '../../hooks';
 import {components} from '../../components';
 import {COLORS} from '../../constants/colors';
+import Toast from 'react-native-toast-message';
 
 const OrderScreen: React.FC = (): JSX.Element => {
   const cart = useAppSelector(state => state.cart.list);
@@ -78,7 +79,14 @@ const OrderScreen: React.FC = (): JSX.Element => {
         title="proceed to payment"
         containerStyle={styles.buttonContainer}
         transparent={true}
-        onPress={() => null}
+        onPress={() => {
+          console.log('huehue');
+          Toast.show({
+            type: 'success',
+            text1: 'Hello',
+            text2: 'This is some something 👋',
+          });
+        }}
       />
     );
   };

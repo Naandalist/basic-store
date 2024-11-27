@@ -18,7 +18,7 @@ const OrderItem: React.FC<Props> = ({item, lastElement}): JSX.Element => {
         style={styles.image}
         imageStyle={styles.imageStyle}
         resizeMode="contain">
-        <SaleBadge version={1} item={item} containerStyle={styles.saleBadge} />
+        <SaleBadge item={item} containerStyle={styles.saleBadge} />
       </ImageBackground>
     );
   };
@@ -27,7 +27,7 @@ const OrderItem: React.FC<Props> = ({item, lastElement}): JSX.Element => {
     return (
       <View style={styles.infoContainer}>
         <View style={styles.productDetailsContainer}>
-          <ProductName item={item} version={1} style={styles.productName} />
+          <ProductName item={item} style={styles.productName} />
           <ProductPrice
             item={item}
             version={1}

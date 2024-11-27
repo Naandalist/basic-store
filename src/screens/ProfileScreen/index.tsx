@@ -14,6 +14,7 @@ const ProfileScreen: React.FC = (): JSX.Element => {
           source={{uri: userLink}}
           style={styles.userImage}
           imageStyle={styles.userImageRadius}
+          showSkeleton={true}
         />
         <View style={styles.userInfoContainer}>
           <View style={styles.userNameContainer}>

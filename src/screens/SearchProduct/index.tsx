@@ -9,25 +9,15 @@ import {
   StatusBar,
   ScrollView,
 } from 'react-native';
-import {NavigationProp, RouteProp} from '@react-navigation/native';
+// import {NavigationProp, RouteProp} from '@react-navigation/native';
 import GoBack from '../../components/GoBack';
 import {COLORS} from '../../constants/colors';
 import {svg} from '../../assets/svg';
 import {useSearchProductsQuery} from '../../store/slices/apiSlice';
-import {ProductType} from '../../types/ProductType';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {RootStackParamList} from '../../types';
 
-interface RouteParams {
-  productsData: {
-    products: ProductType[];
-  };
-}
-
-type SearchScreenRouteProp = RouteProp<{Search: RouteParams}, 'Search'>;
-
-interface Props {
-  route: SearchScreenRouteProp;
-  navigation: NavigationProp<any>;
-}
+type Props = NativeStackScreenProps<RootStackParamList, 'SearchProduct'>;
 
 const SearchProduct: React.FC<Props> = ({
   route,

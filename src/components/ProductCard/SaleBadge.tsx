@@ -12,10 +12,11 @@ const SaleBadge: React.FC<Props> = ({
   item,
   containerStyle,
 }): JSX.Element | null => {
-  if (item.availabilityStatus) {
+  console.log('item: ', item);
+  if (item.stock) {
     return (
       <View style={[styles.container, containerStyle]}>
-        <Text style={styles.text}>Sale</Text>
+        <Text style={styles.text}>Stock:{item.stock}</Text>
       </View>
     );
   }
@@ -33,7 +34,6 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 8,
-    textTransform: 'uppercase',
     color: COLORS.mainColor,
     lineHeight: 8 * 1.7,
   },
