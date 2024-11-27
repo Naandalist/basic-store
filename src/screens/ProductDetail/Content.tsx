@@ -86,14 +86,6 @@ const Content: React.FC<Props> = ({item}): JSX.Element => {
           );
           addedToCartMessage(item);
         }}
-        // onPress={() => {
-        //   dispatch(addToCart(item));
-        //   showMessage({
-        //     message: `${item.name} added to cart`,
-        //     type: 'success',
-        //     icon: 'success',
-        //   });
-        // }}
       />
     );
   };

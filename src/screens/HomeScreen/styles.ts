@@ -1,21 +1,22 @@
 import {StyleSheet} from 'react-native';
 import {COLORS} from '../../constants/colors';
+import {SPACE} from '../../constants/spaces';
 
 export default StyleSheet.create({
   searchContainer: {
     width: '92%',
-    marginHorizontal: 12,
-    paddingVertical: 10,
-    paddingHorizontal: 10,
+    marginHorizontal: SPACE.xs,
+    paddingVertical: SPACE.xs,
+    paddingHorizontal: SPACE.xs,
     borderRadius: 4,
-    marginTop: 20,
+    marginTop: SPACE.lg,
     borderWidth: 1,
-    borderColor: '#DBE9F9',
+    borderColor: COLORS.lightBlue,
     height: 50,
     justifyContent: 'center',
   },
   searchText: {
-    marginLeft: 8,
+    marginLeft: SPACE.xxs,
     fontSize: 14,
     color: COLORS.textColor,
   },
@@ -23,13 +24,13 @@ export default StyleSheet.create({
     flexDirection: 'row',
   },
   topCategoryContainer: {
-    marginHorizontal: 20,
-    marginBottom: 20,
-    marginTop: 20,
+    marginHorizontal: SPACE.lg,
+    marginBottom: SPACE.lg,
+    marginTop: SPACE.lg,
   },
   topCategoryTitle: {
     fontSize: 14,
-    marginBottom: 10,
+    marginBottom: SPACE.xs,
   },
   itemCategoryWrapper: {
     flexDirection: 'row',
@@ -38,7 +39,7 @@ export default StyleSheet.create({
     flexWrap: 'wrap',
   },
   highestRatingContainer: {
-    marginBottom: 50,
-    marginLeft: 20,
+    marginBottom: SPACE.xxxl,
+    marginLeft: SPACE.lg,
   },
 });

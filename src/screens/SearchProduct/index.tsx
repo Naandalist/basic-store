@@ -9,7 +9,6 @@ import {
   StatusBar,
   ScrollView,
 } from 'react-native';
-// import {NavigationProp, RouteProp} from '@react-navigation/native';
 import GoBack from '../../components/GoBack';
 import {COLORS} from '../../constants/colors';
 import {svg} from '../../assets/svg';

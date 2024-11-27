@@ -1,35 +1,22 @@
 import React from 'react';
-import {ScrollView, View, Text} from 'react-native';
-
-// import {svg} from '../../assets/svg';
-// import {useAppDispatch} from '../../hooks';
+import {ScrollView, View, Text, StyleSheet} from 'react-native';
 import {useAppSelector} from '../../hooks';
 import {components} from '../../components';
-// import {setScreen} from '../../store/slices/tabSlice';
 
 const Wishlist: React.FC = (): JSX.Element => {
-  // const dispatch = useAppDispatch();
   const wishlist = useAppSelector(state => state.wishlist.list);
 
   const renderProducts = () => {
     return (
       <components.SmartView>
-        <ScrollView
-          contentContainerStyle={{
-            flexGrow: 1,
-            paddingVertical: 20,
-            paddingLeft: 20,
-            marginRight: 20,
-          }}>
+        <ScrollView contentContainerStyle={styles.scrollContainer}>
           {wishlist.map((item, index, array) => {
             const lastElement = index === array.length - 1;
-            const marginBottom = lastElement ? 0 : 14;
-
             return (
               <components.WishlistItem
                 key={index}
                 item={item}
-                containerStyle={{marginBottom: marginBottom}}
+                containerStyle={[!lastElement && styles.itemMargin]}
               />
             );
           })}
@@ -40,16 +27,9 @@ const Wishlist: React.FC = (): JSX.Element => {
 
   const renderEmptyWishlist = () => {
     return (
-      <View
-        style={{
-          flex: 1,
-          justifyContent: 'center',
-          alignSelf: 'center',
-        }}>
-        <Text style={{marginTop: 30, marginRight: 14}}>
-          Your wishlist is empty!
-        </Text>
-        <Text>
+      <View style={styles.emptyContainer}>
+        <Text style={styles.emptyTitle}>Your wishlist is empty!</Text>
+        <Text style={styles.emptyDescription}>
           Add your favorite items into wishlist{'\n'}by clicking on the heart
           icon.
         </Text>
@@ -59,5 +39,31 @@ const Wishlist: React.FC = (): JSX.Element => {
 
   return <>{wishlist.length > 0 ? renderProducts() : renderEmptyWishlist()}</>;
 };
+
+const styles = StyleSheet.create({
+  scrollContainer: {
+    flexGrow: 1,
+    paddingVertical: 20,
+    paddingLeft: 20,
+    marginRight: 20,
+  },
+  itemMargin: {
+    marginBottom: 14,
+  },
+  emptyContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignSelf: 'center',
+  },
+  emptyTitle: {
+    marginTop: 30,
+    marginRight: 14,
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+  emptyDescription: {
+    textAlign: 'left',
+  },
+});
 
 export default Wishlist;

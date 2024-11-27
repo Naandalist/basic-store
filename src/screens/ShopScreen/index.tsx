@@ -1,7 +1,5 @@
 import React from 'react';
-import {FlatList, Text} from 'react-native';
-
-// import {svg} from '../../assets/svg';
+import {FlatList, Text, StyleSheet} from 'react-native';
 import {components} from '../../components';
 import type {RootStackParamList} from '../../types';
 import {
@@ -10,6 +8,7 @@ import {
 } from '../../store/slices/apiSlice';
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import GoBack from '../../components/GoBack';
+import {SPACE} from '../../constants/spaces';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'ShopScreen'>;
 
@@ -21,13 +20,8 @@ const ShopScreen: React.FC<Props> = ({route, navigation}): JSX.Element => {
     title: 'Shop',
   };
 
-  const {
-    data: dataProductsByCategory,
-    // error: errorProductsByCategory,
-    isLoading: isLoadingProductsByCategory,
-  } = useGetProductsByCategoryQuery(slug || '');
-
-  console.log('dataProductsByCategory: ', dataProductsByCategory);
+  const {data: dataProductsByCategory, isLoading: isLoadingProductsByCategory} =
+    useGetProductsByCategoryQuery(slug || '');
 
   if (isLoadingProductsByCategory) {
     return <components.LoaderView />;
@@ -37,10 +31,7 @@ const ShopScreen: React.FC<Props> = ({route, navigation}): JSX.Element => {
     return (
       <>
         <GoBack onPress={() => navigation.goBack()} />
-
-        <Text style={{marginLeft: 20, marginTop: 40, marginBottom: 20}}>
-          {title} Categories
-        </Text>
+        <Text style={styles.headerText}>{title} Categories</Text>
       </>
     );
   };
@@ -51,12 +42,10 @@ const ShopScreen: React.FC<Props> = ({route, navigation}): JSX.Element => {
       <FlatList
         data={products || productsByCategory}
         renderItem={({item}) => <components.ShopItem item={item} />}
-        columnWrapperStyle={{justifyContent: 'space-between'}}
+        columnWrapperStyle={styles.productsColumns}
         numColumns={2}
         horizontal={false}
-        contentContainerStyle={{
-          paddingHorizontal: 20,
-        }}
+        contentContainerStyle={styles.productsList}
       />
     );
   };
@@ -68,5 +57,17 @@ const ShopScreen: React.FC<Props> = ({route, navigation}): JSX.Element => {
     </components.SafeAreaView>
   );
 };
-
+const styles = StyleSheet.create({
+  headerText: {
+    marginLeft: SPACE.lg,
+    marginTop: SPACE.xl,
+    marginBottom: SPACE.lg,
+  },
+  productsList: {
+    paddingHorizontal: SPACE.lg,
+  },
+  productsColumns: {
+    justifyContent: 'space-between',
+  },
+});
 export default ShopScreen;

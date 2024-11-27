@@ -3,6 +3,7 @@ import {View, StyleSheet, Animated, Dimensions} from 'react-native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {svg} from '../../assets/svg';
 import type {RootStackParamList} from '../../types';
+import {COLORS} from '../../constants/colors';
 
 type SplashScreenProps = {
   navigation: NativeStackNavigationProp<RootStackParamList, 'SplashScreen'>;
@@ -61,7 +62,7 @@ const SplashScreen = ({navigation}: SplashScreenProps) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFFFFF', // Should match with app theme
+    backgroundColor: COLORS.white,
     justifyContent: 'center',
     alignItems: 'center',
   },

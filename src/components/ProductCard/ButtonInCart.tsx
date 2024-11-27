@@ -1,5 +1,5 @@
 import React from 'react';
-import {TouchableOpacity, Alert, StatusBar} from 'react-native';
+import {TouchableOpacity, Alert} from 'react-native';
 import {showMessage} from 'react-native-flash-message';
 import {addToCart} from '../../store/slices/cartSlice';
 import {useAppSelector, useAppDispatch} from '../../hooks';
@@ -30,11 +30,8 @@ const InCart: React.FC<Props> = ({item, containerStyle}): JSX.Element => {
         if (!exist()) {
           dispatch(addToCart(item));
           showMessage({
-            hideStatusBar: true,
-            statusBarHeight: StatusBar.currentHeight,
-            message: 'Added',
-            description: `${item.title} added to cart`,
-            type: 'success',
+            message: `${item.title} has added to cart`,
+            type: 'info',
           });
         }
       }}>
