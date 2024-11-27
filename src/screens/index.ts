@@ -5,6 +5,7 @@ import WishlistScreen from './WishlistScreen';
 import ProductDetail from './ProductDetail';
 import ShopScreen from './ShopScreen';
 import SearchProduct from './SearchProduct';
+import SplashScreen from './SplashScreen';
 
 export const screens = {
   HomeScreen,
@@ -14,4 +15,5 @@ export const screens = {
   ProductDetail,
   ShopScreen,
   SearchProduct,
+  SplashScreen,
 };
